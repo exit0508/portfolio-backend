@@ -19,7 +19,7 @@ app.use(
   "*",
   cors({
     origin: "https://portfolio-vite-ept.pages.dev",
-    allowMethods: ["GET", "POST", "PUT"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
@@ -148,6 +148,7 @@ const getPublicLink = (page: PageObjectResponse): string => {
 };
 
 app.get("/projects", async (c) => {
+  console.log(c.env.NOTION_TOKEN, c.env.NOTION_DATABASE_ID);
   const projects = await fetchAllPosts(
     c.env.NOTION_TOKEN,
     c.env.NOTION_DATABASE_ID

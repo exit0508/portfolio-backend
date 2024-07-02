@@ -2,7 +2,7 @@ name = "hono-backend"
 compatibility_date = "2023-12-01"
 
 [vars]
-
+NOTION_DATABASE_ID = "bd917b38e4284d3e8a907a6b2d1bd31b"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
