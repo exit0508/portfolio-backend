@@ -82,7 +82,7 @@ const fetchAllPosts = async (
           publicLink: getPublicLink(post),
         });
       });
-      //console.log("aaa", projectPosts);
+      console.log("aaa", projectPosts);
       return projectPosts;
       //return response.results;
     }
