@@ -15,7 +15,15 @@ type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.use("/projects", cors());
+app.use(
+  "/projects",
+  cors({
+    origin: ["https://portfolio-vite-ept.pages.dev", "http://localhost:5173"],
+    allowMethods: ["POST", "GET", "OPTIONS"],
+    allowHeaders: ["Authorization", "Content-Type"],
+    credentials: true,
+  })
+);
 
 interface NotionPostType {
   id: string;
@@ -82,7 +90,7 @@ const fetchAllPosts = async (
           publicLink: getPublicLink(post),
         });
       });
-      console.log("aaa", projectPosts);
+      //console.log("aaa", projectPosts);
       return projectPosts;
       //return response.results;
     }
