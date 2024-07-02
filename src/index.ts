@@ -18,8 +18,11 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "/projects",
   cors({
-    origin: ["https://portfolio-vite-ept.pages.dev", "http://localhost:5173"],
-    allowMethods: ["GET"],
+    origin: [
+      "https://portfolio-vite-ept.pages.dev",
+      "http://localhost:5173",
+      "https://hono-backend.exit-deguchi0508.workers.dev",
+    ],
   })
 );
 
