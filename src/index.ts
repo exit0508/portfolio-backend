@@ -16,7 +16,7 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.use(
-  "/projects",
+  "*",
   cors({
     origin: [
       "https://portfolio-vite-ept.pages.dev",
@@ -24,7 +24,7 @@ app.use(
       "http://localhost:5173",
     ],
     allowMethods: ["GET", "POST", "PUT"],
-    allowHeaders: ["Content-Type"],
+    allowHeaders: ["Content-Type", "Authorization"],
   })
 );
 
