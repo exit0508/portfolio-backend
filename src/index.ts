@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import {
   Client,
   LogLevel,
@@ -13,6 +14,16 @@ type Bindings = {
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
+
+app.use(
+  "/projects",
+  cors({
+    origin: ["https://portfolio-vite-ept.pages.dev", "http://localhost:5173"],
+    allowMethods: ["POST", "GET", "OPTIONS"],
+    allowHeaders: ["Authorization", "Content-Type"],
+    credentials: true,
+  })
+);
 
 interface NotionPostType {
   id: string;
